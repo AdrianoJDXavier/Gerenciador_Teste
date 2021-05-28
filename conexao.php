@@ -9,4 +9,5 @@ if ($con->connect_errno) {
     echo "Falha ao conectar: (" . $con->connect_errno . ") " . $con->connect_error;
 }
 
+
 ?>
