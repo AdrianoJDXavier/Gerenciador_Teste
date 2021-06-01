@@ -15,5 +15,4 @@ if(isset($_POST['Enviar']) && $_POST['Enviar'] == 'enviar'){
 
     echo"<script>window.location.href = 'relatorio_teste_list.php';</script>";
 }
-
 ?>

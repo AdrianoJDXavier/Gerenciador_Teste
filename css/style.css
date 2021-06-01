@@ -2,9 +2,20 @@
     margin: 10px !important;
 }
 
+.btn-success{
+    margin-right: 10px !important;
+}
+
 .card{
     -webkit-box-shadow: 5px 5px 10px 1px rgba(1,6,23,0.62); 
     box-shadow: 5px 5px 10px 1px rgba(1,6,23,0.62);
+    border-radius: 10px;
+}
+
+.item_card{
+    width: 95% !important; 
+    align-self: center;
+    margin-top: 10px;
 }
 
 .container{
@@ -23,4 +34,8 @@
     text-decoration: none;
     font-size: x-large;
     font-weight: bold;
+  }
+
+  .btn-filter{
+      margin-top: 8% !important;
   }

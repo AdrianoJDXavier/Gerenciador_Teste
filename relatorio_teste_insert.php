@@ -8,7 +8,7 @@ $extranets = getExtranets();
         <div class="card-header text-center bg-default">
             REGISTRO DE TESTE
         </div>
-        <div style="width: 95% !important; align-self: center;">
+        <div class="item_card">
             <form action="relatorio_teste_data.php" method="POST" id="form_testes">
                 <input type="hidden" name="Enviar" value="enviar"/>
                 <div class="row">

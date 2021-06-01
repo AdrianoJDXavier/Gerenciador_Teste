@@ -1,14 +1,14 @@
 <?php
 require_once 'conexao.php';
 require_once 'header.php';
-
+require_once 'relatorio_teste_filtro.php';
 ?>
 
     <div class="card">
         <div class="card-header text-center bg-default">
             TESTE REALIZADOS
         </div>
-        <div style="width: 95% !important; align-self: center;">
+        <div class="item_card">
             <table id="example" class="display" style="width:100%">
                 <thead>
                     <tr>
@@ -63,7 +63,11 @@ j( document ).ready(function() {
                         "mData": null,
                         "bSortable": false,
                         "mRender": function(data, type, full) {
+                            if(full['link'] != ''){
                             return '<a class="btn btn-success" href=relatorio_teste_insert.php?id=' + full['id'] + '>' + '<span class="fa fa-eye" aria-hidden="true"></span>' + '</a><a class="btn btn-primary" href=' + full['link'] + ' target="_blank">' + '<span class="fa fa-link" aria-hidden="true"></span>' + '</a>';
+                            }else{
+                                return '<a class="btn btn-success" href=relatorio_teste_insert.php?id=' + full['id'] + '>' + '<span class="fa fa-eye" aria-hidden="true"></span>' + '</a>';
+                            }
                         }
                     }
 			]
