@@ -13,6 +13,9 @@ require_once 'relatorio_teste_functions.php';
 ?>
 <div class="container">
     <div class="btn-group">
-        <button type="button" class="btn btn-primary" onclick="window.location = 'relatorio_teste_insert.php';">Inserir</button>
-        <button type="button" class="btn btn-primary" onclick="window.location = 'relatorio_teste_list.php';">Listar</button>
+        <button type="button" class="btn btn-primary btn-header" onclick="window.location = 'relatorio_teste_insert.php';">Inserir</button>
+        <button type="button" class="btn btn-primary btn-header" onclick="window.location = 'relatorio_teste_list.php';">Listar</button>
+        <button type="button" class="btn btn-primary btn-header" onclick="window.location = 'relatorio_teste_exportar.php';">Relatório</button>
+        <button type="button" class="btn btn-primary btn-header" id="exibir">Exibir filtros</button>
+        <button type="button" class="btn btn-primary btn-header" id="ocultar">Ocultar filtros</button>
     </div>

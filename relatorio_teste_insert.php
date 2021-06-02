@@ -20,7 +20,7 @@ $extranets = getExtranets();
                                 <?php
                             foreach($atendentes as $value){
                 
-                                echo "<option value='".$value['id']."'>".$value['nome']."</option>";
+                                echo "<option value='".$value['id']."'>".utf8_decode($value['nome'])."</option>";
                                 
                             }?>
                             </select>
@@ -34,7 +34,7 @@ $extranets = getExtranets();
                                 <?php
                             foreach($extranets as $extranet){
                 
-                                echo "<option value='".$extranet['id']."'>".$extranet['nome']."</option>";
+                                echo "<option value='".$extranet['id']."'>".utf8_decode($extranet['nome'])."</option>";
                                 
                             }?>
                             </select>
@@ -50,7 +50,7 @@ $extranets = getExtranets();
                                 <?php
                                 foreach($atendentes as $atendente){
                     
-                                    echo "<option value='".$atendente['id']."'>".$atendente['nome']."</option>";
+                                    echo "<option value='".$atendente['id']."'>".utf8_decode($atendente['nome'])."</option>";
                                     
                                 }?>
                             </select>
@@ -111,6 +111,8 @@ $extranets = getExtranets();
 <script>
 j = jQuery.noConflict();
 j( document ).ready(function() {
+    j("#exibir").hide();
+    j("#ocultar").hide();
     rp_required('form_testes');
 });
 

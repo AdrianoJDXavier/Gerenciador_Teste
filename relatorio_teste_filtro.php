@@ -20,8 +20,10 @@ if(isset($_POST['limpar_filtro']) && $_POST['limpar_filtro'] == 'limpar_filtro')
     unset($_SESSION['filtro_teste_inicio']);
     unset($_SESSION['filtro_teste_fim']);
 }
+isset($_SESSION['filtro_teste_tipo_teste']) && !empty($_SESSION['filtro_teste_tipo_teste']) ? $tipo_teste = $_SESSION['filtro_teste_tipo_teste'] : $tipo_teste = NULL; 
+
 ?>
-<div class="card">
+<div class="card" id="filtros">
     <div class="item_card">
         <form method="POST">
             <div class="row">
@@ -33,7 +35,7 @@ if(isset($_POST['limpar_filtro']) && $_POST['limpar_filtro'] == 'limpar_filtro')
                                 <?php
                                 foreach($extranets as $extranet){
                                     $_SESSION['filtro_teste_extranet'] == $extranet['id'] ? $selected = 'selected' : $selected = '';
-                                    echo "<option value='".$extranet['id']."' $selected>".$extranet['nome']."</option>";    
+                                    echo "<option value='".$extranet['id']."' $selected>".utf8_decode($extranet['nome'])."</option>";    
                                 }?>
                         </select>
                     </div>
@@ -46,7 +48,7 @@ if(isset($_POST['limpar_filtro']) && $_POST['limpar_filtro'] == 'limpar_filtro')
                             <?php
                             foreach($atendentes as $value){
                                 $_SESSION['filtro_teste_atendente'] == $value['id'] ? $selected = 'selected' : $selected = '';
-                                echo "<option value='".$value['id']."' $selected>".$value['nome']."</option>";
+                                echo "<option value='".$value['id']."' $selected>".utf8_decode($value['nome'])."</option>";
                                     
                             }?>
                         </select>
@@ -60,7 +62,7 @@ if(isset($_POST['limpar_filtro']) && $_POST['limpar_filtro'] == 'limpar_filtro')
                                 <?php
                                 foreach($atendentes as $atendente){
                                     $_SESSION['filtro_teste_tester'] == $atendente['id'] ? $selected = 'selected' : $selected = '';
-                                    echo "<option value='".$atendente['id']."' $selected>".$atendente['nome']."</option>";        
+                                    echo "<option value='".$atendente['id']."' $selected>".utf8_decode($atendente['nome'])."</option>";        
                                 }?>
                         </select>
                     </div>
@@ -72,10 +74,10 @@ if(isset($_POST['limpar_filtro']) && $_POST['limpar_filtro'] == 'limpar_filtro')
                         <label for="filtro_teste_tipo_teste">Tipo:</label>
                         <select name="filtro_teste_tipo_teste" id="filtro_teste_tipo_teste" class="form-control">
                             <option value="">----</option>
-                            <option <?=$_SESSION['filtro_teste_tipo_teste'] == 'Teste' ? 'selected' : NULL;?> value="Teste">Teste</option>
-                            <option <?=$_SESSION['filtro_teste_tipo_teste'] == 'Reteste' ? 'selected' : NULL;?> value="Reteste">Reteste</option>
-                            <option <?=$_SESSION['filtro_teste_tipo_teste'] == 'Inspeção' ? 'selected' : NULL;?> value="Inspeção">Inspeção</option>
-                            <option <?=$_SESSION['filtro_teste_tipo_teste'] == 'Reinspeção' ? 'selected' : NULL;?> value="Reinspeção">Reinspeção</option>
+                            <option <?=$tipo_teste == 'Teste' ? 'selected' : NULL;?> value="Teste">Teste</option>
+                            <option <?=$tipo_teste == 'Reteste' ? 'selected' : NULL;?> value="Reteste">Reteste</option>
+                            <option <?=$tipo_teste == 'Inspeção' ? 'selected' : NULL;?> value="Inspeção">Inspeção</option>
+                            <option <?=$tipo_teste == 'Reinspeção' ? 'selected' : NULL;?> value="Reinspeção">Reinspeção</option>
                         </select>
                     </div>
                 </div>

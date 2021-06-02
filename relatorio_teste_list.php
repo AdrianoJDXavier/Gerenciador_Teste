@@ -2,8 +2,8 @@
 require_once 'conexao.php';
 require_once 'header.php';
 require_once 'relatorio_teste_filtro.php';
-?>
 
+?>
     <div class="card">
         <div class="card-header text-center bg-default">
             TESTE REALIZADOS
@@ -17,6 +17,7 @@ require_once 'relatorio_teste_filtro.php';
                         <th>Extranet</th>
                         <th>N° Solicitação</th>
                         <th>Data</th>
+                        <th>Tipo</th>
                         <th>Ação</th>
                     </tr>
                 </thead>
@@ -26,13 +27,29 @@ require_once 'relatorio_teste_filtro.php';
 </div>
 <script>
 j = jQuery.noConflict();
+
 j( document ).ready(function() {
+    j("#filtros").hide();
+    j("#ocultar").hide();
+    j("#exibir").click(function () {
+        j("#filtros").show(1000);
+        j("#ocultar").show(1000);
+        j("#exibir").hide(1000);
+    });
+
+    j("#ocultar").click(function () {
+        j("#filtros").hide(1000);
+        j("#ocultar").hide(1000);
+        j("#exibir").show(1000);
+    });
+
     var table = j('#example').dataTable({
 			 "bProcessing": true,
 			 "sAjaxSource": "server_side.php",
 			  "bPaginate":true,
 			  "sPaginationType":"full_numbers",
 			  "iDisplayLength": 10,
+              "order": [[ 0, "desc" ]],
               "oLanguage": {
                     "sLengthMenu": "Mostrar _MENU_ registros por página",
                     "sZeroRecords": "Nenhum registro encontrado",
@@ -59,6 +76,7 @@ j( document ).ready(function() {
                         }
                      },
                     { mData: 'data_teste' },
+                    { mData: 'tipo_teste'},
                     {
                         "mData": null,
                         "bSortable": false,
