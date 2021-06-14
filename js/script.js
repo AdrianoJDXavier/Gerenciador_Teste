@@ -46,3 +46,48 @@ function rp_required(form, funcao=null, ajx=null) {
         }
     });
 }
+
+function OpenModalFor(clicked_button) {
+    var item_id = j(clicked_button).data('itemid');
+    console.log(item_id);
+
+    j.ajax({
+        type: 'POST',
+        data: {
+            'id' : item_id,
+        },
+        url : "relatorio_teste_detalhes_modal.php",
+        success: function(response) {
+            if(response) {
+                console.log(response)
+                j('#getModal').append(response);
+                j('.modal').modal('show');
+                j(".close").click(function () {
+                    j('.modal').modal('hide');
+                    j('#getModal').html('');
+                    j('.modal-backdrop').remove()
+                   
+                });
+            } else {
+                alert('Error');
+            }
+        }
+    });
+    
+    /* j.ajax({
+        url: 'relatorio_teste_detalhes_modal.php',
+        type: 'POST',
+        data: {id : item_id},
+        dataType: 'html',
+        cache: false
+   })
+   .done(function(data){
+        console.log(data);
+        j("#getModal").html(data);
+        j(".modal").modal('show');
+   })
+   .fail(function(){
+        
+   }); */
+}
+

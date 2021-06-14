@@ -28,7 +28,7 @@ $sql = "SELECT
     $sql .= " AND r.id_tester = ".$_SESSION['filtro_teste_tester'];
   }
   if(isset($_SESSION['filtro_teste_tipo_teste']) && !empty($_SESSION['filtro_teste_tipo_teste'])){
-    $sql .= " AND r.tipo_teste = '".$_SESSION['filtro_teste_tipo_teste']."'";
+    $sql .= " AND r.tipo_teste = '".utf8_encode($_SESSION['filtro_teste_tipo_teste'])."'";
   }
   if(isset($_SESSION['filtro_teste_inicio']) && !empty($_SESSION['filtro_teste_inicio'])){
     $sql .= " AND r.data_teste >= '".$_SESSION['filtro_teste_inicio']."'";

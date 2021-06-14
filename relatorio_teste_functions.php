@@ -46,6 +46,7 @@ function getExtranets(){
 function insertTeste($id_atendente, $id_extranet, $id_tester, $num_solicitacao, $data_insercao, $data_vencimento, $link, $observacoes, $tipo_teste){
     
     $tipo_teste = utf8_encode($tipo_teste);
+    $observacoes = utf8_encode($observacoes);
     $sql = "INSERT INTO relatorio_teste(id_atendente, id_extranet, id_tester, num_solicitacao, data_insercao, data_vencimento, data_teste, link, observacoes, tipo_teste) VALUES($id_atendente, $id_extranet, $id_tester, $num_solicitacao, '$data_insercao', '$data_vencimento', NOW(), '$link', '$observacoes', '$tipo_teste')";
     db_query($sql);
 }
@@ -81,7 +82,7 @@ function getRelatorioExport(){
         $sql .= " AND r.id_tester = ".$_SESSION['filtro_teste_tester'];
       }
       if(isset($_SESSION['filtro_teste_tipo_teste']) && !empty($_SESSION['filtro_teste_tipo_teste'])){
-        $sql .= " AND r.tipo_teste = '".$_SESSION['filtro_teste_tipo_teste']."'";
+        $sql .= " AND r.tipo_teste = '".utf8_encode($_SESSION['filtro_teste_tipo_teste'])."'";
       }
       if(isset($_SESSION['filtro_teste_inicio']) && !empty($_SESSION['filtro_teste_inicio'])){
         $sql .= " AND r.data_teste >= '".$_SESSION['filtro_teste_inicio']."'";
@@ -90,6 +91,7 @@ function getRelatorioExport(){
         $sql .= " AND r.data_teste <= '".$_SESSION['filtro_teste_fim']."'";
       }
     $sql .= " ORDER BY r.id DESC";
+    
     $result = db_query($sql);
     if(!empty($result)){
         while( $row = db_fetch_array($result)){
@@ -100,5 +102,33 @@ function getRelatorioExport(){
     return NULL;
 }
 
-
+function getRelatorio($id){
+    $sql = "SELECT 
+            r.id,
+            a.nome AS atendente,
+            e.nome AS extranet,
+            a2.nome AS tester,
+            r.num_solicitacao AS num_solicitacao,
+            DATE_FORMAT(r.data_teste, '%d/%m/%Y') AS data_teste,
+            DATE_FORMAT(r.data_insercao, '%d/%m/%Y') AS data_insercao,
+            DATE_FORMAT(r.data_vencimento, '%d/%m/%Y') AS data_vencimento,
+            r.tipo_teste as tipo_teste,
+            r.observacoes as observacao,
+            r.link AS link,
+            e.nome_bd AS nome_db
+            FROM
+            relatorio_teste AS r
+                JOIN
+            atendentes AS a ON a.id = r.id_atendente
+                JOIN
+            atendentes AS a2 ON a2.id = r.id_tester
+                JOIN
+            extranet AS e ON e.id = r.id_extranet
+                WHERE r.id = $id";
+    $result = db_query($sql);
+    if(!empty($result)){
+        return db_fetch_array($result);
+    }
+    return NULL;
+}
 ?>

@@ -111,9 +111,12 @@ $extranets = getExtranets();
 <script>
 j = jQuery.noConflict();
 j( document ).ready(function() {
-    j("#exibir").hide();
-    j("#ocultar").hide();
+    j("#exibir").hide(1000);
+    j("#ocultar").hide(1000);
+    j("#relatorio").hide(1000);
+    j("#inserir").hide(1000);
     rp_required('form_testes');
+    CKEDITOR.replace('observacao');
 });
 
 </script>

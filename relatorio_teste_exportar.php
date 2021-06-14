@@ -62,7 +62,7 @@ foreach($dados as $row){
     $planilha->getActiveSheet()->SetCellValue('F'.$contador, mb_strtoupper($row['data_insercao'],'UTF-8'));
     $planilha->getActiveSheet()->SetCellValue('G'.$contador, mb_strtoupper($row['data_vencimento'],'UTF-8'));
     $planilha->getActiveSheet()->SetCellValue('H'.$contador, mb_strtoupper($row['tipo_teste'],'UTF-8'));
-    $planilha->getActiveSheet()->SetCellValue('I'.$contador, utf8_encode(strip_tags($row['observacao'])));
+    $planilha->getActiveSheet()->SetCellValue('I'.$contador, utf8_decode(strip_tags($row['observacao'])));
     $planilha->getActiveSheet()->getStyle('A'.$contador.':I'.$contador)->applyFromArray($style);
     $contador++;
 }
