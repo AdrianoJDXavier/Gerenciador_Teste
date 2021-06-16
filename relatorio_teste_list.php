@@ -1,5 +1,4 @@
 <?php
-require_once 'conexao.php';
 require_once 'header.php';
 require_once 'relatorio_teste_filtro.php';
 ?>
@@ -7,7 +6,7 @@ require_once 'relatorio_teste_filtro.php';
         <div class="card-header text-center bg-default">
             TESTE REALIZADOS
         </div>
-        <div class="item_card">
+        <div class="item_card table-responsive">
             <table id="example" class="display" style="width:100%">
                 <thead>
                     <tr>

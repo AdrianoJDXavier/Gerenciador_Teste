@@ -23,7 +23,7 @@ if(isset($_POST['limpar_filtro']) && $_POST['limpar_filtro'] == 'limpar_filtro')
 isset($_SESSION['filtro_teste_tipo_teste']) && !empty($_SESSION['filtro_teste_tipo_teste']) ? $tipo_teste = $_SESSION['filtro_teste_tipo_teste'] : $tipo_teste = NULL; 
 
 ?>
-<div class="card" id="filtros">
+<div class="card" id="filtros" style="display: none;">
     <div class="item_card">
         <form method="POST">
             <div class="row">

@@ -115,6 +115,7 @@ j( document ).ready(function() {
     j("#ocultar").hide(1000);
     j("#relatorio").hide(1000);
     j("#inserir").hide(1000);
+    j("#dashboard").hide(1000);
     rp_required('form_testes');
     CKEDITOR.replace('observacao');
 });

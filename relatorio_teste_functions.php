@@ -131,4 +131,46 @@ function getRelatorio($id){
     }
     return NULL;
 }
+
+function getAtendentesMaisAtivos(){
+    $sql = "SELECT 
+                a.nome AS nome, COUNT(*) AS num_solicitacoes
+            FROM
+                relatorio_teste AS r
+                    JOIN
+                atendentes AS a ON a.id = r.id_atendente
+            WHERE
+                r.tipo_teste = 'Teste'
+            GROUP BY a.nome
+            ORDER BY COUNT(*) DESC";
+    $result = db_query($sql);
+    if(!empty($result)){
+        while( $row = db_fetch_array($result)){
+            $return_array[] = $row;
+        }
+        return $return_array;
+    }
+    return NULL;
+}
+
+function getExtranetsMaisAtivos(){
+    $sql = "SELECT 
+                e.nome AS nome, COUNT(*) AS num_solicitacoes
+            FROM
+                relatorio_teste AS r
+                    JOIN
+                extranet AS e ON e.id = r.id_extranet
+            WHERE
+                r.tipo_teste = 'Teste'
+            GROUP BY e.nome
+            ORDER BY COUNT(*) DESC";
+    $result = db_query($sql);
+    if(!empty($result)){
+        while( $row = db_fetch_array($result)){
+            $return_array[] = $row;
+        }
+        return $return_array;
+    }
+    return NULL;
+}
 ?>
