@@ -12,7 +12,7 @@ if( !empty($_REQUEST['search']['value']) ) {
     $where.=" OR r.num_solicitacao LIKE '%".$search."%' ";
     $where.=" OR r.tipo_teste LIKE '%".$search."%' )";
 }
-$totalRecordsSql = "SELECT count(*) as total FROM relatorio_teste2 $where;";
+$totalRecordsSql = "SELECT count(*) as total FROM relatorio_teste $where;";
 $resultset = db_query($totalRecordsSql);
 $res = array();
 while( $rows = db_fetch_array($resultset) ) {
@@ -42,7 +42,7 @@ $sql = "SELECT
         r.link AS link,
         e.nome_bd AS nome_db
         FROM
-        relatorio_teste2 AS r
+        relatorio_teste AS r
             JOIN
         atendentes AS a ON a.id = r.id_atendente
             JOIN
