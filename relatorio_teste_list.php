@@ -43,13 +43,10 @@ j( document ).ready(function() {
     });
 
     var table = j('#example').dataTable({
-			 "bProcessing": true,
-			 "sAjaxSource": "server_side.php",
-			  "bPaginate":true,
-			  "sPaginationType":"full_numbers",
-			  "iDisplayLength": 10,
-              "order": [[ 0, "desc" ]],
-              "oLanguage": {
+        "bProcessing": true,
+         "serverSide": true,
+         "order": [[ 0, "desc" ]],
+         "oLanguage": {
                     "sLengthMenu": "Mostrar _MENU_ registros por página",
                     "sZeroRecords": "Nenhum registro encontrado",
                     "sInfo": "Mostrando _START_ / _END_ de _TOTAL_ registro(s)",
@@ -57,7 +54,7 @@ j( document ).ready(function() {
                     "sInfoFiltered": "(filtrado de _MAX_ registros)",
                     "sSearch": "Pesquisar: ",
                     "loadingRecords": "Carregando...",
-                    "sProcessing":    "Procesando...",
+                    "sProcessing":    "Processando...",
                     "oPaginate": {
                         "sFirst": "Início",
                         "sPrevious": "Anterior",
@@ -65,7 +62,7 @@ j( document ).ready(function() {
                         "sLast": "Último"
                     }
                 },
-			 "aoColumns": [
+         "aoColumns": [
 					{ mData: 'id' } ,
 					{ mData: 'atendente' },
 					{ mData: 'extranet' },
@@ -88,7 +85,14 @@ j( document ).ready(function() {
                             }
                         }
                     }
-			]
+			],
+         "ajax":{
+            url :'server_side.php', 
+            type: "post",  
+            error: function(data){
+                
+            }
+          }
 	});
 });
 
