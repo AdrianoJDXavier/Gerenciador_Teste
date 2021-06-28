@@ -13,7 +13,7 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
 require_once 'relatorio_teste_functions.php';
 ?>
 <div class="container">
-    <div class="btn-group">
+    <div class="btn-grupo">
         <button type="button" class="btn btn-primary btn-header" onclick="window.location = 'relatorio_teste_insert.php';" id="inserir">Inserir</button>
         <button type="button" class="btn btn-primary btn-header" onclick="window.location = 'relatorio_teste_list.php';" id="listar">Listar</button>
         <button type="button" class="btn btn-primary btn-header" onclick="window.location = 'relatorio_teste_exportar.php';" id="relatorio">Relatório</button>

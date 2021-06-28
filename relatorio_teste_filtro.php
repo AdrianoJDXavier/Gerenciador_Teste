@@ -69,7 +69,7 @@ isset($_SESSION['filtro_teste_tipo_teste']) && !empty($_SESSION['filtro_teste_ti
                 </div>
             </div>
             <div class="row">
-                <div class="col-4">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label for="filtro_teste_tipo_teste">Tipo:</label>
                         <select name="filtro_teste_tipo_teste" id="filtro_teste_tipo_teste" class="form-control">
@@ -81,7 +81,7 @@ isset($_SESSION['filtro_teste_tipo_teste']) && !empty($_SESSION['filtro_teste_ti
                         </select>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-md-4">
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
@@ -97,7 +97,7 @@ isset($_SESSION['filtro_teste_tipo_teste']) && !empty($_SESSION['filtro_teste_ti
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-md-4">
                     <div class="btn-filter">
                         <button type="submit" name="filtrar" value="filtrar" class="btn btn-primary">Filtrar</button>
                         <button type="submit" name="limpar_filtro" value="limpar_filtro" class="btn btn-primary">Limpar Filtros</button>

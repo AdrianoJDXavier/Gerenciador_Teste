@@ -22,8 +22,8 @@ require_once 'relatorio_teste_filtro.php';
             </table>
         </div>
     </div>
+    <div id="getModal"></div>
 </div>
-<div id="getModal"></div>
 <script>
 j = jQuery.noConflict();
 

@@ -50,7 +50,9 @@ $sql = "SELECT
         WHERE 1 = 1
             $where $filtro";
 
-$sql.=" ORDER BY ". $columns[$_REQUEST['order'][0]['column']]."   ".$_REQUEST['order'][0]['dir']."  LIMIT ".$_REQUEST['start']." ,".$_REQUEST['length']."   ";
+if(!empty($_REQUEST['order'])){
+    $sql.=" ORDER BY ". $columns[$_REQUEST['order'][0]['column']]."   ".$_REQUEST['order'][0]['dir']."  LIMIT ".$_REQUEST['start']." ,".$_REQUEST['length']."   ";
+}
 
 $resultset = db_query($sql);
 $data = array();
@@ -61,8 +63,7 @@ $json_data = array(
  "draw"            => intval( $_REQUEST['draw'] ),   
  "recordsTotal"    => intval($totalRecords ),  
  "recordsFiltered" => intval($totalRecords),
- "data"            => $data,
- "sql" => $sql
+ "data"            => $data
  );
 
 echo json_encode($json_data);

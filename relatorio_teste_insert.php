@@ -42,7 +42,7 @@ $extranets = getExtranets();
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="tester">Tester:</label>
                             <select name="tester" id="tester" class="form-control rp_required">
@@ -56,19 +56,19 @@ $extranets = getExtranets();
                             </select>
                         </div>
                     </div>
-                    <div class="col-2">
+                    <div class="col-md-2">
                         <div class="form-group">
                             <label for="n_solicitacao">N° Solicitação:</label>
                             <input type="number" name="num_solicitacao" class="form-control rp_required" id="n_solicitacao">
                         </div>
                     </div>
-                    <div class="col-2">
+                    <div class="col-md-2">
                         <div class="form-group">
                             <label for="insercao">Data Inserção:</label>
                             <input type="date" name="insercao" class="form-control rp_required" id="insercao">
                         </div>
                     </div>
-                    <div class="col-2">
+                    <div class="col-md-2">
                         <div class="form-group">
                             <label for="vencimento">Data Vencimento:</label>
                             <input type="date" class="form-control" name="vencimento" id="vencimento">
